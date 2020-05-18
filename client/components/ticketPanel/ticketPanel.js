@@ -99,14 +99,14 @@ Template.ticketPanel.events({
 
 function isValid(){
   return $('#topic').val().length > 0 &&
-         $('#location').val().length > 0 &&
+         //$('#location').val().length > 0 &&
          $('#contact').val().length > 0
 }
 
 function getTicket(){
   return {
     topic: $('#topic').val(),
-    location: $('#location').val(),
+    location: 'Intern Hacks',
     contact: $('#contact').val()
   }
 }
