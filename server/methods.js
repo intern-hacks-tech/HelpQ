@@ -24,6 +24,7 @@ Meteor.methods({
 
 
 function sendToSlack(topic, category, contact) {
+    console.log("============In Send To Slack============");
     HTTP.call('POST', 'https://noxherp26a.execute-api.us-east-1.amazonaws.com/prod', {
         data: {'topic': ticket.topic, 'location': ticket.location, 'contact': ticket.contact},
         headers: {
