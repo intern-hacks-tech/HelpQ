@@ -18,15 +18,13 @@ Meteor.methods({
   toggleRole: toggleRole,
   updateUser: updateUser,
   createAccount: createAccount,
-  sendToSlack: sendToSlack,
-  setSetting : setSetting
+  setSetting : setSetting,
+  sendToSlack: sendToSlack
 });
 
-
 function sendToSlack(topic, category, contact) {
-    console.log("============In Send To Slack============");
     HTTP.call('POST', 'https://noxherp26a.execute-api.us-east-1.amazonaws.com/prod', {
-        data: {'topic': ticket.topic, 'location': ticket.location, 'contact': ticket.contact},
+        data: {'topic': topic, 'location': category, 'contact': contact},
         headers: {
             'Content-Type': 'application/json'
         }
