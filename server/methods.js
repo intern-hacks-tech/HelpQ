@@ -18,7 +18,6 @@ Meteor.methods({
   toggleRole: toggleRole,
   updateUser: updateUser,
   createAccount: createAccount,
-
   setSetting : setSetting,
   sendToSlack: sendToSlack
 });
