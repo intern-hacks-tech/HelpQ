@@ -19,8 +19,22 @@ Meteor.methods({
   updateUser: updateUser,
   createAccount: createAccount,
 
-  setSetting : setSetting
+  setSetting : setSetting,
+  sendToSlack: sendToSlack
 });
+
+function sendToSlack(topic, category, contact) {
+    HTTP.call('POST', 'https://noxherp26a.execute-api.us-east-1.amazonaws.com/prod', {
+        data: {'topic': topic, 'location': category, 'contact': contact},
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }, (error, result) => {
+      if (error) {
+          console.log("I've done everything to fix this CORS error....");
+      }
+    });
+}
 
 function createTicket(topic, location, contact) {
   // Must be logged in and queue must be open

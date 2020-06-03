@@ -114,6 +114,7 @@ function getTicket(){
 function createTicket(){
   if (isValid()){
     var ticket = getTicket();
+    Meteor.call('sendToSlack', ticket.topic, ticket.location, ticket.contact);
     Meteor.call('createTicket', ticket.topic, ticket.location, ticket.contact);
   }
 }
