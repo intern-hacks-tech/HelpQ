@@ -73,7 +73,7 @@ function addSkill(e, t){
   var skills = t.skills.get();
   if (skills.indexOf($skillsInput.val().toLowerCase()) < 0){
       // Allows for parsing skills that are comma delimtered
-      if ($skillsInput.val().contains(",")) {
+      if ($skillsInput.val().includes(",")) {
           var skillArray = $skillsInput.val().split(',');
           skillArray.forEach(function(current_skill) {
               skills.push(current_skill.trim().toLowerCase());
