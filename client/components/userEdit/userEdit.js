@@ -72,8 +72,16 @@ function addSkill(e, t){
   var $skillsInput = $("input[name='skills']");
   var skills = t.skills.get();
   if (skills.indexOf($skillsInput.val().toLowerCase()) < 0){
-    skills.push($skillsInput.val().toLowerCase());
-    t.skills.set(skills);
+      // Allows for parsing skills that are comma delimtered
+      if ($skillsInput.val().contains(",")) {
+          var skillArray = $skillsInput.val().split(',');
+          skillArray.forEach(function(current_skill) {
+              skills.push(current_skill.trim().toLowerCase());
+          })
+      } else {
+          skills.push($skillsInput.val().toLowerCase());
+      }
+      t.skills.set(skills);
   }
   $skillsInput.val("");
 }
