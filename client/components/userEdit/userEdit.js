@@ -76,7 +76,11 @@ function addSkill(e, t){
       if ($skillsInput.val().includes(",")) {
           var skillArray = $skillsInput.val().split(',');
           skillArray.forEach(function(current_skill) {
-              skills.push(current_skill.trim().toLowerCase());
+              var trimmedCurrentSkill = current_skill.trim();
+              // ignore empty string after a trim
+              if (trimmedCurrentSkill.length !== 0) {
+                skills.push(trimmedCurrentSkill.toLowerCase());
+              }
           })
       } else {
           skills.push($skillsInput.val().toLowerCase());
